@@ -50,25 +50,25 @@ def stats(update, context):
 
 def start(update, context):
     start_string = f'''
-This bot can mirror all your links to Google Drive!
+මගෙන් ඕනම ෆයිල් එකක් කෙලින්ම ගූගල් Drive එකට දාගන්න පුළුවන් 😍❤️
 Type /{BotCommands.HelpCommand} to get a list of available commands
 '''
     buttons = button_build.ButtonMaker()
-    buttons.buildbutton("Support Group", "https://telegram.dog/cloudsmirror")
+    buttons.buildbutton("මගෙ Owner 🥰❤️", "https://t.me/Ravindu_Deshanz")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     LOGGER.info('UID: {} - UN: {} - MSG: {}'.format(update.message.chat.id, update.message.chat.username, update.message.text))
     uptime = get_readable_time((time.time() - botStartTime))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         if update.message.chat.type == "private" :
-            sendMessage(f"Hey I'm Alive 🙂\nSince: <code>{uptime}</code>", context.bot, update)
+            sendMessage(f"ආ කෝමද😊...මම ඇහැරලා ඉන්නේ 🥰❤️\nSince: <code>{uptime}</code>", context.bot, update)
         else :
             update.effective_message.reply_photo(IMAGE_URL, start_string, parse_mode=ParseMode.MARKDOWN, reply_markup=reply_markup)
     else :
-        sendMessage(f"Oops! not a Authorized user.", context.bot, update)
+        sendMessage(f"ප්‍රයිවෙට් මැසේජ් දාන්න අවසර නෑ බුංගා ඔයාට 😾😾..අපේ ගෲපට වරෙම් මාව යූස් කරන්න පම්කයා 😾❤️", context.bot, update)
 
 
 def restart(update, context):
-    restart_message = sendMessage("Restarting, Please wait!", context.bot, update)
+    restart_message = sendMessage("රීස්ටාට් වෙන ගමන් ඉන්නේ 😍", context.bot, update)
     # Save restart message object in order to reply to it after restarting
     with open(".restartmsg", "w") as f:
         f.truncate(0)
@@ -208,7 +208,7 @@ def main():
     if os.path.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        bot.edit_message_text("Restarted successfully!", chat_id, msg_id)
+        bot.edit_message_text("රීස්ටාට් උනා බන් 😌", chat_id, msg_id)
         os.remove(".restartmsg")
     bot.set_my_commands(botcmds)
 
