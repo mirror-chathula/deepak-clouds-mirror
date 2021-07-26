@@ -19,7 +19,7 @@ class _BotCommands:
         self.HelpCommand = 'helpmirror1'
         self.LogCommand = 'log1'
         self.SpeedCommand = 'speedtest'
-        self.CloneCommand = 'driv1e'
+        self.CloneCommand = 'drive1'
         self.CountCommand = 'count1'
         self.WatchCommand = 'video1'
         self.TarWatchCommand = 'tarvideo1'
